@@ -18,7 +18,7 @@ function calcBudget() {
         let savings = income - expenses;
         let totalSavings = savings * months;
 
-        // rounding (without toFixed)
+        // rounding 
         income = Math.round(income * 100) / 100;
         expenses = Math.round(expenses * 100) / 100;
         savings = Math.round(savings * 100) / 100;
