@@ -29,25 +29,22 @@ function calcBudget() {
         results.innerHTML = "";
 
         // summary output
-        results.innerHTML += "<p>Monthly Income: $" + income + "</p>";
-        results.innerHTML += "<p>Monthly Expenses: $" + expenses + "</p>";
-        results.innerHTML += "<p>Monthly Savings: $" + savings + "</p>";
-        results.innerHTML += "<p>Total Projected Savings: $" + totalSavings + "</p>";
-
+        results.innerHTML += "<p>Monthly Income: $" + income.toFixed(2) + "</p>";
+        results.innerHTML += "<p>Monthly Expenses: $" + expenses.toFixed(2) + "</p>";
+        results.innerHTML += "<p>Monthly Savings: $" + savings.toFixed(2) + "</p>";
+        results.innerHTML += "<p>Total Projected Savings: $" + totalSavings.toFixed(2) + "</p>";
+        
         // warning
         if (savings < 0) {
             results.innerHTML += "<p><b>Warning: Spending exceeds income!</b></p>";
         }
 
         // monthly projection loop
-        for (let i = 1; i <= months; i++) {
-            let monthTotal = Math.round((savings * i) * 100) / 100;
-
-            let p = document.createElement("p");
-            p.textContent = "Month " + i + " Savings: $" + monthTotal;
-
-            results.appendChild(p);
-        }
+            for (let i = 1; i <= months; i++) {
+                let monthTotal = savings * i;
+                let p = document.createElement("p");
+                p.textContent = "Month " + i + " Savings: $" + monthTotal.toFixed(2);
+                results.appendChild(p);
 
     } catch (error) {
         alert("Error: " + error);
